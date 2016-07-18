@@ -1,0 +1,30 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="jfinal-ee:war exploded">
+    <output-path>$PROJECT_DIR$/target/jfinal-ee</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="jfinal-ee" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.jfinal:jfinal:2.2" />
+          <element id="library" level="project" name="Maven: cglib:cglib-nodep:3.1" />
+          <element id="library" level="project" name="Maven: com.jfinal:jetty-server:8.1.8" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-xml:8.1.8.v20121106" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-util:8.1.8.v20121106" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-servlet:8.1.8.v20121106" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-security:8.1.8.v20121106" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-server:8.1.8.v20121106" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty.orbit:javax.servlet:3.0.0.v201112011016" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-continuation:8.1.8.v20121106" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-http:8.1.8.v20121106" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-io:8.1.8.v20121106" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/jfinal-ee/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="jfinal-ee/web/Web" />
+    </root>
+  </artifact>
+</component>

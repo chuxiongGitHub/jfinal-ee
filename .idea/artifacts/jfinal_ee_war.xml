@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jfinal-ee:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="jfinal-ee.war">
+      <element id="artifact" artifact-name="jfinal-ee:war exploded" />
+    </root>
+  </artifact>
+</component>
