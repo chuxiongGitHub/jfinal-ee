@@ -22,6 +22,7 @@
           <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-continuation:8.1.8.v20121106" />
           <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-http:8.1.8.v20121106" />
           <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-io:8.1.8.v20121106" />
+          <element id="library" level="project" name="Maven: com.alibaba:druid:1.0.23" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:6.0.3" />
         </element>
       </element>
