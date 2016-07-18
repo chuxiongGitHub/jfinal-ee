@@ -1,3 +1,1 @@
-2016-07-18 15:22:13 [ INFO] - com.rainbow.test.Log4jTest -Log4jTest.java(15) -这是测试信息
-2016-07-18 15:23:23 [ INFO] - com.rainbow.test.Log4jTest -Log4jTest.java(15) -这是测试信息
-2016-07-18 15:23:57 [ INFO] - com.rainbow.test.Log4jTest -Log4jTest.java(15) -这是测试信息
+2016-07-18 16:03:49 [ INFO] - com.rainbow.controller.HelloController -HelloController.java(13) -开始请求hello方法
