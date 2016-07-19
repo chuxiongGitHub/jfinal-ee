@@ -1,1 +1,523 @@
-2016-07-18 16:03:49 [ INFO] - com.rainbow.controller.HelloController -HelloController.java(13) -开始请求hello方法
+2016-07-19 16:14:11 [ INFO] - com.mchange.v2.log.MLog -MLog.java(124) -MLog clients using log4j logging.
+2016-07-19 16:14:12 [ INFO] - com.mchange.v2.c3p0.C3P0Registry -C3P0Registry.java(204) -Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2016-07-19 16:14:12 [ INFO] - com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource -AbstractPoolBackedDataSource.java(462) -Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgeby99im642vpron5d|7ee8290b, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgeby99im642vpron5d|7ee8290b, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> mysql:jdbc://localhost:3306/jfinal_demo?useUnicode=true&characterEncoding=utf-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2016-07-19 16:14:32 [ WARN] - com.mchange.v2.async.ThreadPoolAsynchronousRunner -ThreadPoolAsynchronousRunner.java(791) -com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@43574347 -- APPARENT DEADLOCK!!! Creating emergency threads for unassigned pending tasks!
+2016-07-19 16:14:32 [ WARN] - com.mchange.v2.async.ThreadPoolAsynchronousRunner -ThreadPoolAsynchronousRunner.java(807) -com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@43574347 -- APPARENT DEADLOCK!!! Complete Status: 
+	Managed Threads: 3
+	Active Threads: 3
+	Active Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1b919693
+			on thread: com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1807f5a7
+			on thread: com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@7fb4f2a9
+			on thread: com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0
+	Pending Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@4dc27487
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@6a4f1a55
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@7dfd3c81
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@2584b82d
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@7bbc8656
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@6933b6c6
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@7d3e8655
+Pool thread stack traces:
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1,5,main]
+		java.lang.Thread.sleep(Native Method)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2,5,main]
+		java.lang.Thread.sleep(Native Method)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0,5,main]
+		java.lang.Thread.sleep(Native Method)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
+
+2016-07-19 16:14:41 [ WARN] - com.mchange.v2.resourcepool.BasicResourcePool -BasicResourcePool.java(1841) -com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@7fb4f2a9 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: No suitable driver
+	at java.sql.DriverManager.getDriver(DriverManager.java:315)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.driver(DriverManagerDataSource.java:223)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
+2016-07-19 16:14:42 [ WARN] - com.mchange.v2.resourcepool.BasicResourcePool -BasicResourcePool.java(1841) -com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1807f5a7 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: No suitable driver
+	at java.sql.DriverManager.getDriver(DriverManager.java:315)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.driver(DriverManagerDataSource.java:223)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
+2016-07-19 16:14:42 [ WARN] - com.mchange.v2.resourcepool.BasicResourcePool -BasicResourcePool.java(1841) -com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1b919693 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: No suitable driver
+	at java.sql.DriverManager.getDriver(DriverManager.java:315)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.driver(DriverManagerDataSource.java:223)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
+2016-07-19 16:14:42 [ERROR] - com.jfinal.core.Config -Config.java(96) -Plugin start error: com.jfinal.plugin.activerecord.ActiveRecordPlugin. 
+java.sql.SQLException: Connections could not be acquired from the underlying database!
+com.jfinal.plugin.activerecord.ActiveRecordException: java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.jfinal.plugin.activerecord.TableBuilder.build(TableBuilder.java:54)
+	at com.jfinal.plugin.activerecord.ActiveRecordPlugin.start(ActiveRecordPlugin.java:225)
+	at com.jfinal.core.Config.startPlugins(Config.java:88)
+	at com.jfinal.core.Config.configJFinal(Config.java:49)
+	at com.jfinal.core.JFinal.init(JFinal.java:62)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:49)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:277)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer.doStart(JettyServer.java:122)
+	at com.jfinal.server.JettyServer.start(JettyServer.java:65)
+	at com.jfinal.core.JFinal.start(JFinal.java:154)
+	at com.rainbow.Config.main(Config.java:82)
+Caused by: java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.mchange.v2.sql.SqlUtils.toSQLException(SqlUtils.java:118)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:529)
+	at com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getConnection(AbstractPoolBackedDataSource.java:128)
+	at com.jfinal.plugin.activerecord.TableBuilder.build(TableBuilder.java:42)
+	... 20 more
+Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A ResourcePool could not acquire a resource from its primary factory or source.
+	at com.mchange.v2.resourcepool.BasicResourcePool.awaitAvailable(BasicResourcePool.java:1319)
+	at com.mchange.v2.resourcepool.BasicResourcePool.prelimCheckoutResource(BasicResourcePool.java:557)
+	at com.mchange.v2.resourcepool.BasicResourcePool.checkoutResource(BasicResourcePool.java:477)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:525)
+	... 22 more
+2016-07-19 16:14:42 [ERROR] - com.jfinal.kit.LogKit -LogKit.java(75) -Plugin start error: com.jfinal.plugin.activerecord.ActiveRecordPlugin. 
+java.sql.SQLException: Connections could not be acquired from the underlying database!
+java.lang.RuntimeException: Plugin start error: com.jfinal.plugin.activerecord.ActiveRecordPlugin. 
+java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.jfinal.core.Config.startPlugins(Config.java:97)
+	at com.jfinal.core.Config.configJFinal(Config.java:49)
+	at com.jfinal.core.JFinal.init(JFinal.java:62)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:49)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:277)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer.doStart(JettyServer.java:122)
+	at com.jfinal.server.JettyServer.start(JettyServer.java:65)
+	at com.jfinal.core.JFinal.start(JFinal.java:154)
+	at com.rainbow.Config.main(Config.java:82)
+Caused by: com.jfinal.plugin.activerecord.ActiveRecordException: java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.jfinal.plugin.activerecord.TableBuilder.build(TableBuilder.java:54)
+	at com.jfinal.plugin.activerecord.ActiveRecordPlugin.start(ActiveRecordPlugin.java:225)
+	at com.jfinal.core.Config.startPlugins(Config.java:88)
+	... 18 more
+Caused by: java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.mchange.v2.sql.SqlUtils.toSQLException(SqlUtils.java:118)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:529)
+	at com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getConnection(AbstractPoolBackedDataSource.java:128)
+	at com.jfinal.plugin.activerecord.TableBuilder.build(TableBuilder.java:42)
+	... 20 more
+Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A ResourcePool could not acquire a resource from its primary factory or source.
+	at com.mchange.v2.resourcepool.BasicResourcePool.awaitAvailable(BasicResourcePool.java:1319)
+	at com.mchange.v2.resourcepool.BasicResourcePool.prelimCheckoutResource(BasicResourcePool.java:557)
+	at com.mchange.v2.resourcepool.BasicResourcePool.checkoutResource(BasicResourcePool.java:477)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:525)
+	... 22 more
+2016-07-19 16:16:32 [ INFO] - com.mchange.v2.log.MLog -MLog.java(80) -MLog clients using log4j logging.
+2016-07-19 16:16:33 [ INFO] - com.mchange.v2.c3p0.C3P0Registry -C3P0Registry.java(204) -Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2016-07-19 16:16:34 [ INFO] - com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource -AbstractPoolBackedDataSource.java(462) -Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgeby99im94qi18olqeu|6200f9cb, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgeby99im94qi18olqeu|6200f9cb, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> mysql:jdbc://localhost:3306/jfinal_demo?useUnicode=true&characterEncoding=utf-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2016-07-19 16:16:54 [ WARN] - com.mchange.v2.async.ThreadPoolAsynchronousRunner -ThreadPoolAsynchronousRunner.java(608) -com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@3f033e6b -- APPARENT DEADLOCK!!! Creating emergency threads for unassigned pending tasks!
+2016-07-19 16:16:54 [ WARN] - com.mchange.v2.async.ThreadPoolAsynchronousRunner -ThreadPoolAsynchronousRunner.java(624) -com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@3f033e6b -- APPARENT DEADLOCK!!! Complete Status: 
+	Managed Threads: 3
+	Active Threads: 3
+	Active Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@56af45d2 (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@41c32bf3 (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@2e7fed5d (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2)
+	Pending Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@10d6228f
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@3cfb6492
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@64bf4c4d
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@357b4082
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1498def8
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@73a0f70d
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@6d631010
+Pool thread stack traces:
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1,5,main]
+		java.lang.Thread.sleep(Native Method)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0,5,main]
+		java.lang.Thread.sleep(Native Method)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2,5,main]
+		java.lang.Thread.sleep(Native Method)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+
+2016-07-19 16:17:03 [ WARN] - com.mchange.v2.resourcepool.BasicResourcePool -BasicResourcePool.java(1841) -com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@2e7fed5d -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: No suitable driver
+	at java.sql.DriverManager.getDriver(DriverManager.java:315)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.driver(DriverManagerDataSource.java:223)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2016-07-19 16:17:03 [ WARN] - com.mchange.v2.resourcepool.BasicResourcePool -BasicResourcePool.java(1841) -com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@56af45d2 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: No suitable driver
+	at java.sql.DriverManager.getDriver(DriverManager.java:315)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.driver(DriverManagerDataSource.java:223)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2016-07-19 16:17:03 [ WARN] - com.mchange.v2.resourcepool.BasicResourcePool -BasicResourcePool.java(1841) -com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@41c32bf3 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: No suitable driver
+	at java.sql.DriverManager.getDriver(DriverManager.java:315)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.driver(DriverManagerDataSource.java:223)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2016-07-19 16:17:03 [ERROR] - com.jfinal.core.Config -Config.java(96) -Plugin start error: com.jfinal.plugin.activerecord.ActiveRecordPlugin. 
+java.sql.SQLException: Connections could not be acquired from the underlying database!
+com.jfinal.plugin.activerecord.ActiveRecordException: java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.jfinal.plugin.activerecord.TableBuilder.build(TableBuilder.java:54)
+	at com.jfinal.plugin.activerecord.ActiveRecordPlugin.start(ActiveRecordPlugin.java:225)
+	at com.jfinal.core.Config.startPlugins(Config.java:88)
+	at com.jfinal.core.Config.configJFinal(Config.java:49)
+	at com.jfinal.core.JFinal.init(JFinal.java:62)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:49)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:277)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer.doStart(JettyServer.java:122)
+	at com.jfinal.server.JettyServer.start(JettyServer.java:65)
+	at com.jfinal.core.JFinal.start(JFinal.java:154)
+	at com.rainbow.Config.main(Config.java:82)
+Caused by: java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.mchange.v2.sql.SqlUtils.toSQLException(SqlUtils.java:106)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:529)
+	at com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getConnection(AbstractPoolBackedDataSource.java:128)
+	at com.jfinal.plugin.activerecord.TableBuilder.build(TableBuilder.java:42)
+	... 20 more
+Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A ResourcePool could not acquire a resource from its primary factory or source.
+	at com.mchange.v2.resourcepool.BasicResourcePool.awaitAvailable(BasicResourcePool.java:1319)
+	at com.mchange.v2.resourcepool.BasicResourcePool.prelimCheckoutResource(BasicResourcePool.java:557)
+	at com.mchange.v2.resourcepool.BasicResourcePool.checkoutResource(BasicResourcePool.java:477)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:525)
+	... 22 more
+2016-07-19 16:17:03 [ERROR] - com.jfinal.kit.LogKit -LogKit.java(75) -Plugin start error: com.jfinal.plugin.activerecord.ActiveRecordPlugin. 
+java.sql.SQLException: Connections could not be acquired from the underlying database!
+java.lang.RuntimeException: Plugin start error: com.jfinal.plugin.activerecord.ActiveRecordPlugin. 
+java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.jfinal.core.Config.startPlugins(Config.java:97)
+	at com.jfinal.core.Config.configJFinal(Config.java:49)
+	at com.jfinal.core.JFinal.init(JFinal.java:62)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:49)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:277)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer.doStart(JettyServer.java:122)
+	at com.jfinal.server.JettyServer.start(JettyServer.java:65)
+	at com.jfinal.core.JFinal.start(JFinal.java:154)
+	at com.rainbow.Config.main(Config.java:82)
+Caused by: com.jfinal.plugin.activerecord.ActiveRecordException: java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.jfinal.plugin.activerecord.TableBuilder.build(TableBuilder.java:54)
+	at com.jfinal.plugin.activerecord.ActiveRecordPlugin.start(ActiveRecordPlugin.java:225)
+	at com.jfinal.core.Config.startPlugins(Config.java:88)
+	... 18 more
+Caused by: java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.mchange.v2.sql.SqlUtils.toSQLException(SqlUtils.java:106)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:529)
+	at com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getConnection(AbstractPoolBackedDataSource.java:128)
+	at com.jfinal.plugin.activerecord.TableBuilder.build(TableBuilder.java:42)
+	... 20 more
+Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A ResourcePool could not acquire a resource from its primary factory or source.
+	at com.mchange.v2.resourcepool.BasicResourcePool.awaitAvailable(BasicResourcePool.java:1319)
+	at com.mchange.v2.resourcepool.BasicResourcePool.prelimCheckoutResource(BasicResourcePool.java:557)
+	at com.mchange.v2.resourcepool.BasicResourcePool.checkoutResource(BasicResourcePool.java:477)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:525)
+	... 22 more
+2016-07-19 16:26:58 [ INFO] - com.mchange.v2.log.MLog -MLog.java(80) -MLog clients using log4j logging.
+2016-07-19 16:27:00 [ INFO] - com.mchange.v2.c3p0.C3P0Registry -C3P0Registry.java(204) -Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2016-07-19 16:27:00 [ INFO] - com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource -AbstractPoolBackedDataSource.java(462) -Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgeby99immjwap618b3|6200f9cb, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgeby99immjwap618b3|6200f9cb, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> mysql:jdbc://localhost:3306/jfinal_demo?useUnicode=true&characterEncoding=utf-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2016-07-19 16:27:20 [ WARN] - com.mchange.v2.async.ThreadPoolAsynchronousRunner -ThreadPoolAsynchronousRunner.java(608) -com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@624c4fae -- APPARENT DEADLOCK!!! Creating emergency threads for unassigned pending tasks!
+2016-07-19 16:27:20 [ WARN] - com.mchange.v2.async.ThreadPoolAsynchronousRunner -ThreadPoolAsynchronousRunner.java(624) -com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@624c4fae -- APPARENT DEADLOCK!!! Complete Status: 
+	Managed Threads: 3
+	Active Threads: 3
+	Active Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@2d07ac8b (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1cd14ba9 (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@558a1e39 (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2)
+	Pending Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@4d9958e3
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@5d6ad62f
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@4bf05228
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@4e8ef6b9
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@49d7e1cb
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@42079d70
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@bafe60a
+Pool thread stack traces:
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1,5,main]
+		java.lang.Thread.sleep(Native Method)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0,5,main]
+		java.lang.Thread.sleep(Native Method)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2,5,main]
+		java.lang.Thread.sleep(Native Method)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+
+2016-07-19 16:27:29 [ WARN] - com.mchange.v2.resourcepool.BasicResourcePool -BasicResourcePool.java(1841) -com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@558a1e39 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: No suitable driver
+	at java.sql.DriverManager.getDriver(DriverManager.java:315)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.driver(DriverManagerDataSource.java:223)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2016-07-19 16:27:29 [ WARN] - com.mchange.v2.resourcepool.BasicResourcePool -BasicResourcePool.java(1841) -com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@2d07ac8b -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: No suitable driver
+	at java.sql.DriverManager.getDriver(DriverManager.java:315)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.driver(DriverManagerDataSource.java:223)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2016-07-19 16:27:29 [ERROR] - com.jfinal.core.Config -Config.java(96) -Plugin start error: com.jfinal.plugin.activerecord.ActiveRecordPlugin. 
+java.sql.SQLException: Connections could not be acquired from the underlying database!
+com.jfinal.plugin.activerecord.ActiveRecordException: java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.jfinal.plugin.activerecord.TableBuilder.build(TableBuilder.java:54)
+	at com.jfinal.plugin.activerecord.ActiveRecordPlugin.start(ActiveRecordPlugin.java:225)
+	at com.jfinal.core.Config.startPlugins(Config.java:88)
+	at com.jfinal.core.Config.configJFinal(Config.java:49)
+	at com.jfinal.core.JFinal.init(JFinal.java:62)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:49)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:277)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer.doStart(JettyServer.java:122)
+	at com.jfinal.server.JettyServer.start(JettyServer.java:65)
+	at com.jfinal.core.JFinal.start(JFinal.java:154)
+	at com.rainbow.Config.main(Config.java:82)
+Caused by: java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.mchange.v2.sql.SqlUtils.toSQLException(SqlUtils.java:106)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:529)
+	at com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getConnection(AbstractPoolBackedDataSource.java:128)
+	at com.jfinal.plugin.activerecord.TableBuilder.build(TableBuilder.java:42)
+	... 20 more
+Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A ResourcePool could not acquire a resource from its primary factory or source.
+	at com.mchange.v2.resourcepool.BasicResourcePool.awaitAvailable(BasicResourcePool.java:1319)
+	at com.mchange.v2.resourcepool.BasicResourcePool.prelimCheckoutResource(BasicResourcePool.java:557)
+	at com.mchange.v2.resourcepool.BasicResourcePool.checkoutResource(BasicResourcePool.java:477)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:525)
+	... 22 more
+2016-07-19 16:27:29 [ERROR] - com.jfinal.kit.LogKit -LogKit.java(75) -Plugin start error: com.jfinal.plugin.activerecord.ActiveRecordPlugin. 
+java.sql.SQLException: Connections could not be acquired from the underlying database!
+java.lang.RuntimeException: Plugin start error: com.jfinal.plugin.activerecord.ActiveRecordPlugin. 
+java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.jfinal.core.Config.startPlugins(Config.java:97)
+	at com.jfinal.core.Config.configJFinal(Config.java:49)
+	at com.jfinal.core.JFinal.init(JFinal.java:62)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:49)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:277)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer.doStart(JettyServer.java:122)
+	at com.jfinal.server.JettyServer.start(JettyServer.java:65)
+	at com.jfinal.core.JFinal.start(JFinal.java:154)
+	at com.rainbow.Config.main(Config.java:82)
+Caused by: com.jfinal.plugin.activerecord.ActiveRecordException: java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.jfinal.plugin.activerecord.TableBuilder.build(TableBuilder.java:54)
+	at com.jfinal.plugin.activerecord.ActiveRecordPlugin.start(ActiveRecordPlugin.java:225)
+	at com.jfinal.core.Config.startPlugins(Config.java:88)
+	... 18 more
+Caused by: java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.mchange.v2.sql.SqlUtils.toSQLException(SqlUtils.java:106)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:529)
+	at com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getConnection(AbstractPoolBackedDataSource.java:128)
+	at com.jfinal.plugin.activerecord.TableBuilder.build(TableBuilder.java:42)
+	... 20 more
+Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A ResourcePool could not acquire a resource from its primary factory or source.
+	at com.mchange.v2.resourcepool.BasicResourcePool.awaitAvailable(BasicResourcePool.java:1319)
+	at com.mchange.v2.resourcepool.BasicResourcePool.prelimCheckoutResource(BasicResourcePool.java:557)
+	at com.mchange.v2.resourcepool.BasicResourcePool.checkoutResource(BasicResourcePool.java:477)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:525)
+	... 22 more
+2016-07-19 17:17:15 [ERROR] - com.jfinal.kit.LogKit -LogKit.java(75) -Can not create instance of class: com.rainbow.Config. Please check the config in web.xml
+java.lang.RuntimeException: Can not create instance of class: com.rainbow.Config. Please check the config in web.xml
+	at com.jfinal.core.JFinalFilter.createJFinalConfig(JFinalFilter.java:104)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:47)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:277)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer.doStart(JettyServer.java:122)
+	at com.jfinal.server.JettyServer.start(JettyServer.java:65)
+	at com.jfinal.core.JFinal.start(JFinal.java:154)
+	at com.rainbow.Config.main(Config.java:81)
+2016-07-19 17:18:55 [ERROR] - com.jfinal.kit.LogKit -LogKit.java(75) -Can not create instance of class: com.rainbow.Config. Please check the config in web.xml
+java.lang.RuntimeException: Can not create instance of class: com.rainbow.Config. Please check the config in web.xml
+	at com.jfinal.core.JFinalFilter.createJFinalConfig(JFinalFilter.java:104)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:47)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:277)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer.doStart(JettyServer.java:122)
+	at com.jfinal.server.JettyServer.start(JettyServer.java:65)
+	at com.jfinal.core.JFinal.start(JFinal.java:154)
+	at com.rainbow.Config.main(Config.java:81)
+2016-07-19 17:24:02 [ERROR] - com.jfinal.kit.LogKit -LogKit.java(75) -Can not create instance of class: com.rainbow.Config. Please check the config in web.xml
+java.lang.RuntimeException: Can not create instance of class: com.rainbow.Config. Please check the config in web.xml
+	at com.jfinal.core.JFinalFilter.createJFinalConfig(JFinalFilter.java:104)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:47)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:277)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer.doStart(JettyServer.java:122)
+	at com.jfinal.server.JettyServer.start(JettyServer.java:65)
+	at com.jfinal.core.JFinal.start(JFinal.java:154)
+	at com.rainbow.Config.main(Config.java:81)
+2016-07-19 17:26:21 [ERROR] - com.jfinal.kit.LogKit -LogKit.java(75) -Can not create instance of class: com.rainbow.Config. Please check the config in web.xml
+java.lang.RuntimeException: Can not create instance of class: com.rainbow.Config. Please check the config in web.xml
+	at com.jfinal.core.JFinalFilter.createJFinalConfig(JFinalFilter.java:104)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:47)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:277)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer.doStart(JettyServer.java:122)
+	at com.jfinal.server.JettyServer.start(JettyServer.java:65)
+	at com.jfinal.core.JFinal.start(JFinal.java:154)
+	at com.rainbow.Config.main(Config.java:81)
+2016-07-19 17:27:00 [ERROR] - com.jfinal.kit.LogKit -LogKit.java(75) -Can not create instance of class: com.rainbow.Config. Please check the config in web.xml
+java.lang.RuntimeException: Can not create instance of class: com.rainbow.Config. Please check the config in web.xml
+	at com.jfinal.core.JFinalFilter.createJFinalConfig(JFinalFilter.java:104)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:47)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:277)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer.doStart(JettyServer.java:122)
+	at com.jfinal.server.JettyServer.start(JettyServer.java:65)
+	at com.jfinal.core.JFinal.start(JFinal.java:154)
+	at com.rainbow.Config.main(Config.java:81)
