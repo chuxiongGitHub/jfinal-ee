@@ -11,6 +11,7 @@ import com.rainbow.controller.HelloController;
 import com.rainbow.controller.IndexController;
 import com.rainbow.controller.TestController;
 import com.rainbow.controller.UserController;
+import com.rainbow.entity.Blog;
 import com.rainbow.entity.User;
 
 /**
@@ -56,13 +57,14 @@ public class Config extends JFinalConfig {
 
         //使用C3p0数据库连接池
 
-        C3p0Plugin c3p0Plugin=new C3p0Plugin(PropKit.get("jdbcUrl"),PropKit.get("jdbcUser"),PropKit.get("jdbcPassword").trim());
+        C3p0Plugin c3p0Plugin = new C3p0Plugin(PropKit.get("jdbcUrl"), PropKit.get("user"), PropKit.get("password"));
         //配置ActiveRecord
         ActiveRecordPlugin activeRecordPlugin=new ActiveRecordPlugin(c3p0Plugin);
         //输出SQL语句
         activeRecordPlugin.setShowSql(true);
         //模型映射
         activeRecordPlugin.addMapping("user",User.class);
+        activeRecordPlugin.addMapping("blog", Blog.class);
         me.add(c3p0Plugin);
         me.add(activeRecordPlugin);
 
