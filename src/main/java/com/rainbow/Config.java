@@ -24,6 +24,7 @@ public class Config extends JFinalConfig {
         //使用常量包
         PropKit.use("jdbc.properties");
         me.setViewType(ViewType.JSP);
+        me.setBaseViewPath("/WEB-INF/template");
         me.setEncoding("UTF-8");
         me.setDevMode(true);
     }
