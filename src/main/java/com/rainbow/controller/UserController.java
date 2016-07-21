@@ -2,6 +2,7 @@ package com.rainbow.controller;
 
 import com.jfinal.core.Controller;
 import com.rainbow.entity.User;
+import org.apache.log4j.Logger;
 
 import java.util.List;
 
@@ -10,13 +11,14 @@ import java.util.List;
  * 一事专注，便是动人；一生坚守，便是深邃！
  */
 public class UserController extends Controller {
+    public static final Logger logger=Logger.getLogger(UserController.class);
     /**
      * 访问/user进入到index方法，直接进入list.jsp页面
      */
     public void index(){
         List<User> userList=User.dao.find("select * from user order by id asc");
         setAttr("userList",userList);
-        System.out.println("得到的数据有："+userList.size()+"条");
+      logger.info("得到的数据有"+userList.size()+"条");
         render("list.jsp");
     }
 
@@ -35,7 +37,6 @@ public class UserController extends Controller {
      * 编辑方法
      */
     public void edit(){
-
         form();
     }
     /**
@@ -43,16 +44,17 @@ public class UserController extends Controller {
      */
     public void submit(){
         User user=getModel(User.class,"user");
+        logger.info("开始调用save方法保存数据");
         user.save();
-        index();
+        redirect("/user");
     }
     /**
      * 删除方法
      */
     public void del(){
         User.dao.deleteById(getPara(0));
-        System.out.println("删除的id是："+getPara(0));
-        index();
+        logger.info("删除的数据id是："+getPara(0));
+        redirect("/user");
     }
     /**
      * 更新方法
@@ -60,6 +62,6 @@ public class UserController extends Controller {
     public void update(){
         User user=getModel(User.class,"user");
         user.update();
-        index();
+        redirect("/user");
     }
 }
